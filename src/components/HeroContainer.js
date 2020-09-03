@@ -3,7 +3,7 @@ import { Box, Typography } from '@material-ui/core';
 
 export default function HeroContainer() {
   return (
-    <Box>
+    <Box className='hero__container'>
       <Typography variant='h3' align='center' >
         Your Pictures
       </Typography>

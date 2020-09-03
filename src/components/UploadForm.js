@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Box } from '@material-ui/core';
+import ProgressBar from './ProgressBar';
+
+const initialValue = {
+  name: ''
+};
 
 export default function UploadForm() {
   const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
 
-  const [currentFile, setCurrentFile] = useState({
-    name: ''
-  });
+  const [currentFile, setCurrentFile] = useState(initialValue);
   const [error, setError] = useState(null);
 
   function hanldeChange(e) {
@@ -17,9 +20,12 @@ export default function UploadForm() {
       setCurrentFile(selected);
       console.log(currentFile);
       setError('');
+    } else if(selected === undefined) {
+      setCurrentFile(initialValue);
+      setError('No image selected');
     } else {
-      setCurrentFile(null);
-      setError('Choose a supported file');
+      setCurrentFile(initialValue);
+      setError('Choose a supported image');
     }
   }
 
@@ -27,6 +33,7 @@ export default function UploadForm() {
     <Box>
       <input type='file' onChange={hanldeChange} />
       <p>{error ? error : currentFile.name}</p>
+      {currentFile.name && <ProgressBar file={currentFile} setFile={setCurrentFile} />}
     </Box>
   );
 }
