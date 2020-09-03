@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import useStorage from './hook';
+import useStorage from './useStorage';
 import { Box, Typography, CircularProgress } from '@material-ui/core';
 
 export default function ProgressBar({file, setFile}) {
