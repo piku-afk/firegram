@@ -1,22 +1,18 @@
 import React from 'react';
-import useFirestore from './useFirestore';
 
-export default function ImageGrid() {
-
-  const { docs } = useFirestore('images'); 
-  console.log(docs);
-
+export default function ImageGrid({setSelected, setModal, images}) {
   return (
     <div className="img-grid">
-      {docs && docs.map(doc => <GetImage key={doc.id} item={doc} />)}
-    </div>
-  );
-}
-
-function GetImage({item}) {
-  return (
-    <div className='img-container'>
-        <img src={item.url} alt={item.name} />
+      {images && images.map((doc, index) => {
+        return (
+          <div onClick={() => {
+            setSelected(index);
+            setModal(true);
+          }} key={doc.id} className='img-container'>
+            <img src={doc.url} alt={doc.name} />
+          </div>
+        );
+      })}
     </div>
   );
 }

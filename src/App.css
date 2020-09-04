@@ -16,6 +16,14 @@
   margin-bottom: 20px;
 }
 
+.MuiBox-root-2 {
+  /* input-form container */
+  margin: 0 auto;
+}
+
+/***********************
+      Image Grid 
+***********************/
 .img-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -37,3 +45,40 @@
   top: -50%;
   left: -25%;
 }
+
+/***********************
+      Modal 
+***********************/
+.modal {
+  max-width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .7);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.MuiIconButton-root  {
+  color: red !important;
+  font-size: 100px !important;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 5px 0 !important;
+}
+
+
+.slick-slider, .slick-list, .slick-track {
+  height: 97%;
+}
+.slick-slide > div {
+  height: 100%;
+}
+.img-wrapper {
+  height: 100%;
+}
+.img-wrapper img {
+  width: 95%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+} 
