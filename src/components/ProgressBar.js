@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import useStorage from './useStorage';
 import { Box, Typography, CircularProgress } from '@material-ui/core';
 
-export default function ProgressBar({file, setFile}) {
+export default function ProgressBar({name, file, setFile}) {
 
-  const { url, progress } = useStorage(file);
+  const { url, progress } = useStorage(file, name);
 
   useEffect(() => {
     console.log(url);

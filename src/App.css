@@ -22,11 +22,29 @@
 }
 
 /***********************
+      Upload Form
+***********************/
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.submit-button {
+  margin: 10px 0 0 !important;
+}
+.below-form {
+  min-height: 5vh;
+  text-align: center;
+  color: red;
+  padding: 10px 0;
+}
+
+/***********************
       Image Grid 
 ***********************/
 .img-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-gap: 10px;
 }
 
@@ -58,6 +76,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  overflow-y: hidden;
 }
 .MuiIconButton-root  {
   color: red !important;
@@ -68,19 +87,26 @@
 }
 
 
-.slick-slider, .slick-list, .slick-track {
-  height: 97%;
+.slick-slider {
+  height: 93%;
 }
-.slick-slide > div {
+.slick-slide > div, .slick-list, .slick-track  {
   height: 100%;
 }
 .img-wrapper {
   height: 100%;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
 }
 .img-wrapper img {
   width: 95%;
-  height: 100%;
+  height: 90%;
   object-fit: contain;
   display: block;
-  margin: auto;
+  margin: 0 auto;
 } 
+.img-wrapper .MuiTypography-root {
+  color: white;
+  margin-top: 10px;
+}
