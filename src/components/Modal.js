@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 
 import "slick-carousel/slick/slick.css";
@@ -8,8 +8,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import { Typography } from '@material-ui/core';
 
-export default function Modal({selected, images, setModal}) {
-
+export default function Modal({prev, selected, images, setModal}) {
   const setting = {
     infinite: false,
     speed: 500,
@@ -19,6 +18,13 @@ export default function Modal({selected, images, setModal}) {
     arrows: false
   }
 
+  useEffect(() => {
+    document.body.classList.add('body--fixed');
+    return () => {
+      document.body.classList.remove('body--fixed');
+      window.scrollTo(0, prev);
+    }
+  }, [prev]);
 
   return (
     <div className='modal'>

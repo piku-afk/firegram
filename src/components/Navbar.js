@@ -7,7 +7,7 @@ import HeroContainer from './HeroContainer';
 export default function Navbar() {
   return (
     <>
-    <AppBar position='static'>
+    <AppBar position='fixed'>
       <Toolbar>
         <Typography variant='h5'>
           Firegram

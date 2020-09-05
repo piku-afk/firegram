@@ -11,6 +11,7 @@ function App() {
   const { docs } = useFirestore('images'); 
   const [modal, setModal] = useState(false);
   const [selected, setSelected] = useState(0);
+  const [prevScroll, setPrevScroll] = useState(0);
 
   return (
     <div className="app">
@@ -25,6 +26,8 @@ function App() {
             selected={selected}
             setModal={setModal}
             setSelected={setSelected}
+            prev={prevScroll}
+            setPrev={setPrevScroll}
           />
         </Route>
 
@@ -36,6 +39,8 @@ function App() {
             selected={selected}
             setModal={setModal}
             setSelected={setSelected}
+            prev={prevScroll}
+            setPrev={setPrevScroll}
           />
         </Route>
             

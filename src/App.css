@@ -1,3 +1,12 @@
+.body--fixed {
+  /* top stop background scrolling when modal is open */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .MuiAppBar-root {
   background-color: white !important;
   color: black !important;
@@ -5,19 +14,14 @@
 .MuiBox-root-4 {
   text-align: center;
 }
-.hero__container {
-  height: 40vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+
 .contact-buttons {
   display: inline-block;
   margin: 0 auto;
 }
 
 .MuiContainer-root, .contact-buttons .MuiContainer-root {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .MuiBox-root-2 {
@@ -25,7 +29,31 @@
   margin: 0 auto;
 }
 
-
+/***********************
+      Upload Form
+***********************/
+.hero__container {
+  color: black;
+  padding-top: 7vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=426&w=640');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -1;
+  opacity: .6;
+}
 /***********************
       Upload Form
 ***********************/

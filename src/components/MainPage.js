@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Container from '@material-ui/core/Container';
 
@@ -6,7 +6,24 @@ import UploadForm from './UploadForm';
 import ImageGrid from './ImageGrid';
 import Modal from './Modal';
 
-export default function MainPage({admin, docs, modal, selected, setModal, setSelected}) {
+export default function MainPage({prev, setPrev,admin, docs, modal, selected, setModal, setSelected}) {
+
+  useEffect(() => {
+    window.onscroll = () => {
+      if(window.scrollY !== 0) {
+        setPrev(window.scrollY)
+      }
+    }
+
+    return () => {
+      window.removeEventListener('scroll', () => {
+        if(window.scrollY !== 0) {
+          setPrev(window.scrollY)
+        }
+      })
+    };
+  }, [prev, setPrev]);
+
   return (
     <>
       <Container>
@@ -18,7 +35,7 @@ export default function MainPage({admin, docs, modal, selected, setModal, setSel
         />
       </Container>
       
-      {modal && <Modal selected={selected} images={docs} setModal={setModal} />}
+      {modal && <Modal prev={prev} selected={selected} images={docs} setModal={setModal} />}
     </>
   );
 }

@@ -14,6 +14,7 @@ export default function HeroContainer() {
 
   return (
     <Box className='hero__container'>
+      <div className="hero__background"></div>
       <Typography variant='h5' align='center'>
         Hello I' m
       </Typography>
@@ -24,19 +25,22 @@ export default function HeroContainer() {
        A Photpgrapher. I capture life
       </Typography>
       <div className="contact-buttons">
-        <IconButton classes={{
+        <Typography variant='subtitle2' align='center'>
+          Follow Me Here
+        </Typography>
+        <IconButton target="_blank" classes={{
           root: classes.link
-        }} href='#'>
+        }} href='https://twitter.com/Sumit_cosmos'>
           <TwitterIcon />
         </IconButton>
-        <IconButton classes={{
+        <IconButton target="_blank" classes={{
           root: classes.link
-        }} href='#'>
+        }} href='https://www.facebook.com/profile.php?id=100022796920106'>
           <FacebookIcon />
         </IconButton>
-        <IconButton classes={{
+        <IconButton target="_blank" classes={{
           root: classes.link
-        }} href='#'>
+        }} href='https://www.instagram.com/picture_perfect_sk/'>
           <InstagramIcon />
         </IconButton>
       </div>
