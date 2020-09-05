@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import './App.css';
-import useFirestore from './components/useFirestore';
-import Container from '@material-ui/core/Container';
 import Navbar from './components/Navbar';
-import HeroContainer from './components/HeroContainer';
-import UploadForm from './components/UploadForm';
-import ImageGrid from './components/ImageGrid';
-import Modal from './components/Modal';
+import MainPage from './components/MainPage';
+import useFirestore from './components/useFirestore';
+import './App.css';
+import { BrowserRouter as Router , Switch, Route } from 'react-router-dom';
+
+
 
 function App() { 
   const { docs } = useFirestore('images'); 
@@ -16,14 +15,32 @@ function App() {
   return (
     <div className="app">
       <Navbar />
+     <Router>
+      <Switch>
+ 
+        <Route path='/' exact>
+          <MainPage 
+            docs={docs}
+            modal={modal}
+            selected={selected}
+            setModal={setModal}
+            setSelected={setSelected}
+          />
+        </Route>
 
-      <Container>
-        <HeroContainer />
-        <UploadForm />
-        <ImageGrid images={docs} setModal={setModal} setSelected={setSelected} />
-      </Container>
-      
-      {modal && <Modal selected={selected} images={docs} setModal={setModal} />}
+        <Route path='/malik' exact>
+        <MainPage 
+            admin
+            docs={docs}
+            modal={modal}
+            selected={selected}
+            setModal={setModal}
+            setSelected={setSelected}
+          />
+        </Route>
+            
+      </Switch>
+     </Router>
     </div>
   );
 }

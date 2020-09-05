@@ -11,8 +11,12 @@
   flex-direction: column;
   justify-content: center;
 }
+.contact-buttons {
+  display: inline-block;
+  margin: 0 auto;
+}
 
-.MuiContainer-root {
+.MuiContainer-root, .contact-buttons .MuiContainer-root {
   margin-bottom: 20px;
 }
 
@@ -20,6 +24,7 @@
   /* input-form container */
   margin: 0 auto;
 }
+
 
 /***********************
       Upload Form
@@ -78,7 +83,7 @@
   left: 0;
   overflow-y: hidden;
 }
-.MuiIconButton-root  {
+.modal .MuiIconButton-root  {
   color: red !important;
   font-size: 100px !important;
   left: 50%;

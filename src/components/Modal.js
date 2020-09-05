@@ -16,6 +16,7 @@ export default function Modal({selected, images, setModal}) {
     slidesToShow: 1,
     initialSlide: selected,
     centerMode: true,
+    arrows: false
   }
 
 
