@@ -14,29 +14,29 @@ export default function Modal({prev, selected, images, setModal}) {
     speed: 500,
     slidesToShow: 1,
     initialSlide: selected,
-    centerMode: true,
     arrows: false
   }
 
   useEffect(() => {
-    document.body.classList.add('body--fixed');
+
+    document.querySelector('.app').classList.add('body--fixed');
     return () => {
-      document.body.classList.remove('body--fixed');
+      document.querySelector('.app').classList.remove('body--fixed');
       window.scrollTo(0, prev);
     }
   }, [prev]);
 
   return (
     <div className='modal'>
-      <Slider {...setting}> 
-       {getSlides(images)}
-      </Slider>
-
       <IconButton size='small' onClick={() => {
         setModal(false);
-      }}>
+        }}>
         <CloseIcon />
       </IconButton>
+  
+        <Slider {...setting}> 
+         {getSlides(images)}
+        </Slider>
     </div>
   );
 };

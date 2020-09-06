@@ -34,8 +34,7 @@
 ***********************/
 .hero__container {
   color: black;
-  padding-top: 7vh;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,13 +102,13 @@
       Modal 
 ***********************/
 .modal {
-  max-width: 100%;
+  width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, .7);
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  overflow-y: hidden;
+  z-index: 1101;
 }
 .modal .MuiIconButton-root  {
   color: red !important;
@@ -121,7 +120,7 @@
 
 
 .slick-slider {
-  height: 93%;
+  height: 85%;
 }
 .slick-slide > div, .slick-list, .slick-track  {
   height: 100%;
@@ -133,7 +132,7 @@
   justify-content: center;
 }
 .img-wrapper img {
-  width: 95%;
+  width: 100%;
   height: 90%;
   object-fit: contain;
   display: block;
