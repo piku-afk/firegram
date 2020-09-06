@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import {makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
@@ -8,21 +8,21 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
-export default function HeroContainer() {
+export default function HeroContainer({reference}) {
 
   const classes = useStyles();
 
   return (
-    <Box className='hero__container'>
+    <Box ref={reference} className='hero__container'>
       <div className="hero__background"></div>
-      <Typography variant='h5' align='center'>
+      <Typography variant='body1' align='center'>
         Hello I' m
       </Typography>
       <Typography variant='h3' align='center' >
-        Sumit Kumar
+        <span className="white">Sumit Kumar</span>
       </Typography>
       <Typography variant='h6' align='center' >
-       A Photpgrapher. I capture life
+      <span className="yellow">A Photpgrapher.</span> <span className="white">I capture life</span>
       </Typography>
       <div className="contact-buttons">
         <Typography variant='subtitle2' align='center'>
@@ -50,6 +50,6 @@ export default function HeroContainer() {
 
 const useStyles = makeStyles({
   link: {
-    color: 'black'
+    color: '#ffba00'
   }
 });
