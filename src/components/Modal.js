@@ -44,7 +44,7 @@ export default function Modal({prev, selected, images, setModal}) {
 function getSlides(images) {
   return images.map(image => (
     <div key={image.id} className="img-wrapper">
-      <img src={image.url} alt={image.name}/>
+      <img loading='lazy' src={image.url} alt={image.name}/>
       <Typography variant='subtitle2' align='center' >
         {image.name}
       </Typography>
