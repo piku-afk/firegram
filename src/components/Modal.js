@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 
 export default function Modal({prev, selected, images, setModal}) {
   const setting = {

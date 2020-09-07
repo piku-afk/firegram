@@ -8,6 +8,8 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import { makeStyles } from '@material-ui/core/styles';
+import { InputLabel, MenuItem, Select } from '@material-ui/core';
+import PreviewGrid from './PreviewGrid';
 
 const initialValue = {
   name: ''
@@ -24,12 +26,24 @@ export default function UploadForm() {
   const [value, setValue] = useState('');
   const [caption, setCaption] = useState('');
   const [selectedFile, setSelectedFile] = useState(initialValue);
+  const [previewImage, setPreviewIamge] = useState('');
   const [uploadFile, setUploadFile] = useState({});
+  const [orientation, setOrientation] = useState('square');
   const [error, setError] = useState(null);
   const classes = useStyles();
 
   function hanldeChange(e) {
     const selected = e.target.files[0];
+
+    //for image preview in PreviewGrid
+   if(selected) {
+    const reader = new FileReader();
+    reader.readAsDataURL(selected);
+    reader.onloadend = (e) => {
+      setPreviewIamge(e.target.result);
+    }
+   }
+
 
     if(selected && allowedTypes.includes(selected.type)) {
       setSelectedFile(selected);
@@ -62,18 +76,33 @@ export default function UploadForm() {
         </label>
 
         <TextField
+          autoComplete='off'
           value={value}
           onChange={e => setValue(e.target.value)}
           id="standard-basic" label="Add caption" 
         />
 
+        <InputLabel id='select-type'>Type</InputLabel>
+        <Select
+          id='select'
+          labelId="select-type"
+          value={orientation}
+          onChange={e => setOrientation(e.target.value)}
+        >
+          <MenuItem value='square'>Square</MenuItem>
+          <MenuItem value='landscape'>Lanscape</MenuItem>
+          <MenuItem value='potrait'>Potrait</MenuItem>
+        </Select>
+
         <Button className='submit-button' type='submit' variant='outlined' > 
-          Submit
+          Ready To Upload
         </Button>
       </form>
       <div className='below-form'>
         <Typography variant='body1' >
           {selectedFile.name && `Selected: ${selectedFile.name}`}
+          <br />
+          {selectedFile.size && `Size: ${(selectedFile.size/1024).toFixed(2)} kb`}
         </Typography>
         <Typography variant='body1' >
           {error ? error : uploadFile.name}
@@ -81,6 +110,7 @@ export default function UploadForm() {
 
         {uploadFile.name && <ProgressBar name={caption} file={uploadFile} setFile={setUploadFile} />}
       </div>
+      <PreviewGrid value={value} image={previewImage} orientation={orientation} />
     </Box>
   );
 }

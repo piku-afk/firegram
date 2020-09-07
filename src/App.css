@@ -9,7 +9,7 @@
 
 :root {
   --yellow-color: #ffba00;
-  --gray-color: #212121;
+  --gray-color: #424242;
 }
 .yellow {
   color: var(--yellow-color);
@@ -20,7 +20,6 @@
 
 .MuiAppBar-root {
   background-color: rgba(0, 0, 0, .8) !important;
-  color: white !important;
 }
 .MuiContainer-root {
   padding-left: 7px !important;
@@ -82,46 +81,56 @@
 .upload-form label .MuiIconButton-root {
   color: var(--yellow-color) !important
 }
-.upload-form .MuiFormLabel-root {
-  color: white !important
-}
-.upload-form .MuiInput-underline::before, .upload-form .MuiInput-underline::after {
+.upload-form .MuiInput-underline::before, 
+.upload-form .MuiInput-underline::after {
   border-color: var(--yellow-color);
 }
 
 .upload-form .MuiButton-outlined {
-  margin: 10px 0 !important;
+  margin: 15px 0 !important;
   color: var(--yellow-color) !important;
   border-color: var(--yellow-color);
 }
 .below-form {
   min-height: 5vh;
   text-align: center;
-  color: #e50914;
+  color: var(--yellow-color);
   padding: 10px 0;
+}
+#select-type {
+  margin-top: 15px;
+}
+#select {
+  margin: 10px 0 5px;
 }
 
 /***********************
       Image Grid 
 ***********************/
-.img-grid {
+.img-grid,
+.preview-grid {
   background-color: var(--gray-color);
   /* border-radius: 5px; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: 150px;
+  grid-auto-flow: dense;
   grid-gap: 9px;
   padding: 9px;
 }
 
 .img-container {
   overflow: hidden;
-  height: 0;
-  padding: 50% 0;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   position: relative;
-  border: 1.5px solid var(--yellow-color);
+  /* border: .1px solid var(--yellow-color); */
   /* border-radius: 5px; */
 } 
+.preview-container {
+  display: grid;
+  place-content: center;
+  color: #a1a1a1;
+}
 .grid-image{
   width: 100%;
   height: 100%;
@@ -132,6 +141,14 @@
   object-fit: cover;
   object-position: center;
 }
+.landscape {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+.potrait {
+  grid-column: span 1;
+  grid-row: span 2;
+}
 
 /***********************
       Modal 
@@ -140,7 +157,7 @@
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, .7);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1101;
@@ -174,7 +191,12 @@
   margin: 0 auto;
   border: 1px solid var(--yellow-color);
 } 
-.img-wrapper .MuiTypography-root {
+.img-wrapper .MuiTypography-root,
+.preview .MuiTypography-root {
   color: var(--yellow-color);
   margin-top: 10px;
+}
+
+.preview-modal {
+  height: 85%;
 }

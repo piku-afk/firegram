@@ -27,12 +27,12 @@ export default function MainPage({prev, setPrev,admin, docs, modal, selected, se
   return (
     <>
       <Container>
-        { admin && <UploadForm />}
-        <ImageGrid 
+        { admin && <UploadForm /> }
+        { !admin && <ImageGrid 
         images={docs} 
         setModal={setModal} 
         setSelected={setSelected}
-        />
+        /> }
       </Container>
       
       {modal && <Modal prev={prev} selected={selected} images={docs} setModal={setModal} />}
